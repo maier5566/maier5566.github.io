@@ -37,10 +37,10 @@ function ajustar(){
 var a=document.getElementById('area');
 var fr=document.getElementById('fr');
 var W=a.offsetWidth,H=a.offsetHeight;
-var escala=W/980;
 var portrait=H>W;
-var offset=portrait?2800:520;
-fr.style.width='980px';
+var escala=portrait ? W/420 : W/980;
+var offset=portrait ? 580 : 520;
+fr.style.width=portrait?'420px':'980px';
 fr.style.height=Math.round((H/escala)+900)+'px';
 fr.style.transform='scale('+escala+')';
 fr.style.top='-'+Math.round(offset*escala)+'px';

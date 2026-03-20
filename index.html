@@ -36,12 +36,14 @@ document.getElementById('sub').textContent=DIAS[d.getDay()]+', '+d.getDate()+' d
 function ajustar(){
 var a=document.getElementById('area');
 var fr=document.getElementById('fr');
-var W=a.offsetWidth, H=a.offsetHeight;
+var W=a.offsetWidth,H=a.offsetHeight;
 var escala=W/980;
+var portrait=H>W;
+var offset=portrait?820:620;
 fr.style.width='980px';
-fr.style.height=Math.round((H/escala)+600)+'px';
+fr.style.height=Math.round((H/escala)+900)+'px';
 fr.style.transform='scale('+escala+')';
-fr.style.top='-'+Math.round(310*escala)+'px';
+fr.style.top='-'+Math.round(offset*escala)+'px';
 document.getElementById('ft').innerHTML='✅ <b>'+new Date().toLocaleTimeString('pt-BR')+'</b> · Atualiza em 10 min';
 }
 function carregar(){

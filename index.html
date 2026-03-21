@@ -13,8 +13,10 @@ header h1{font-size:clamp(1rem,3.5vw,1.8rem);font-weight:bold}
 #rel{font-size:clamp(.6rem,1.5vw,.85rem);color:#aee8ae;margin-top:1px}
 #area{flex:1;overflow:hidden;position:relative}
 iframe{position:absolute;left:0;top:0;border:none;transform-origin:top left}
-footer{background:#d8d8a0;border-top:1px solid #c8c840;text-align:center;padding:4px;font-size:clamp(.55rem,1.4vw,.75rem);color:#555;flex-shrink:0}
-footer b{color:#2a7a2a}
+#rodape{background:#2a7a2a;text-align:center;padding:6px;display:flex;align-items:center;justify-content:center;height:120px;flex-shrink:0}
+#rodape img{height:110px;max-width:100%;object-fit:contain}
+footer{background:#2a7a2a;border-top:1px solid #1a5a1a;text-align:center;padding:4px;font-size:clamp(.55rem,1.4vw,.75rem);color:#aee8ae;flex-shrink:0}
+footer b{color:#fff}
 </style>
 </head>
 <body>
@@ -24,38 +26,4 @@ footer b{color:#2a7a2a}
 <div id="rel">--:--:--</div>
 </header>
 <div id="area"><iframe id="fr" scrolling="no" src=""></iframe></div>
-<footer id="ft">🔄 Carregando...</footer>
-<script>
-var DIAS=['Domingo','Segunda-Feira','Terça-Feira','Quarta-Feira','Quinta-Feira','Sexta-Feira','Sábado'];
-var MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-function rel(){
-var d=new Date();
-document.getElementById('rel').textContent=d.toLocaleTimeString('pt-BR');
-document.getElementById('sub').textContent=DIAS[d.getDay()]+', '+d.getDate()+' de '+MESES[d.getMonth()]+' de '+d.getFullYear();
-}
-function ajustar(){
-var a=document.getElementById('area');
-var fr=document.getElementById('fr');
-var W=a.offsetWidth,H=a.offsetHeight;
-var portrait=H>W;
-var escala=portrait ? W/420 : W/980;
-var offset=portrait ? 1050 : 520;
-fr.style.width=portrait?'420px':'980px';
-fr.style.height=Math.round((H/escala)+900)+'px';
-fr.style.transform='scale('+escala+')';
-fr.style.top='-'+Math.round(offset*escala)+'px';
-document.getElementById('ft').innerHTML='✅ <b>'+new Date().toLocaleTimeString('pt-BR')+'</b> · Atualiza em 10 min';
-}
-function carregar(){
-var fr=document.getElementById('fr');
-fr.src='https://www.ojogodobicho.com/deu_no_poste.htm?v='+Date.now();
-setTimeout(ajustar,4000);
-}
-window.addEventListener('resize',ajustar);
-setInterval(rel,1000);
-setInterval(carregar,600000);
-rel();
-carregar();
-</script>
-</body>
-</html>
+<div id="rodape"><img src="logo divulga mix.png" alt="Divulga Mix"></div>

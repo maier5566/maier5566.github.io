@@ -39,7 +39,7 @@ var fr=document.getElementById('fr');
 var W=a.offsetWidth,H=a.offsetHeight;
 var portrait=H>W;
 var escala=portrait ? W/420 : W/980;
-var offset=portrait ? 920 : 520;
+var offset=portrait ? 1200 : 520;
 fr.style.width=portrait?'420px':'980px';
 fr.style.height=Math.round((H/escala)+900)+'px';
 fr.style.transform='scale('+escala+')';
